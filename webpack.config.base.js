@@ -20,7 +20,7 @@ module.exports = {
       style: 'src/style',
       utils: 'src/utils'
     },
-    extensions: ['.js']
+    extensions: ['.js', '.jsx', '.scss', '.css'],
   },
   module: {
     rules: []

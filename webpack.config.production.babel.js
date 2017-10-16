@@ -80,11 +80,19 @@ module.exports = merge(base, {
       { test: /\.svg(\?v=\d+.\d+.\d+)?$/, loader: 'file-loader?limit=10000&mimetype=image/svg+xml&name=fonts/[name].[ext]' },
       { test: /\.(jpe?g|png|gif)$/i, loader: 'file-loader?name=img/[name].[ext]' },
       { test: /\.ico$/, loader: 'file-loader?name=img/[name].[ext]' },
-      { test: /(\.css|\.scss)$/,
+      { test: /(\.css)$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: [
             'css-loader?sourceMap',
+          ]
+        })
+      },
+      { test: /(\.scss)$/,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            'css-loader?sourceMap=true&modules=true&importLoaders=1',
             'sass-loader?outputStyle=expanded&sourceMap=true&sourceMapContents=true'
           ]
         })
